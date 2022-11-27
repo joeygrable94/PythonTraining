@@ -1,10 +1,10 @@
 
-# Python Education 1 - PCEP Certification
+# Python Essentials 1 - PCAP-30-02 Certification
 
 Python Institute Open Education & Development Group
 Provided by Edube Interactive
 
-- [Python Education 1 - PCEP Certification](#python-education-1---pcep-certification)
+- [Python Essentials 1 - PCAP-30-02 Certification](#python-essentials-1---pcap-30-02-certification)
   - [Module 1](#module-1)
     - [Introduction to Computer Programming](#introduction-to-computer-programming)
     - [Compilation vs. Interpretation](#compilation-vs-interpretation)
