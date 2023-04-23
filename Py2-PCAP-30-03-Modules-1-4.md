@@ -27,7 +27,7 @@
         - [Ex. 3: importing packages using qualified imports](#ex-3-importing-packages-using-qualified-imports)
     - [Python Packaging Ecosystem](#python-packaging-ecosystem)
     - [Dependencies (using pip)](#dependencies-using-pip)
-  - [Module 2: Strings, Strings and List Methods, and Exceptions](#module-2-strings-strings-and-list-methods-and-exceptions)
+  - [Module 2: Strings, String Operations and Methods, and Python Exceptions and Errors](#module-2-strings-string-operations-and-methods-and-python-exceptions-and-errors)
     - [`Strings` in Computer Systems](#strings-in-computer-systems)
       - [Internationalization (I18N)](#internationalization-i18n)
       - [Codepoints \& Codepages](#codepoints--codepages)
@@ -39,6 +39,17 @@
       - [String Ordinals and Code Point Characters](#string-ordinals-and-code-point-characters)
       - [Indexing, Iterating, and Slicing a String](#indexing-iterating-and-slicing-a-string)
       - [The `in` and `not in` operators](#the-in-and-not-in-operators)
+      - [String Operations and Methods](#string-operations-and-methods)
+      - [Comparing Strings](#comparing-strings)
+      - [Sorting Strings](#sorting-strings)
+      - [Converting Strings to Numbers/Floats](#converting-strings-to-numbersfloats)
+      - [Python Strings Key Takeaways](#python-strings-key-takeaways)
+    - [Expections and Errors](#expections-and-errors)
+      - [Exception Handling](#exception-handling)
+      - [Python Exception Hierarchy](#python-exception-hierarchy)
+      - [Exceptions in Application](#exceptions-in-application)
+      - [Assertions](#assertions)
+      - [Exceptions Key Takeaways](#exceptions-key-takeaways)
   - [Module 3: Object-Oriented Programming](#module-3-object-oriented-programming)
   - [Module 4: Miscellaneous](#module-4-miscellaneous)
 
@@ -49,99 +60,100 @@
 ### Section 1: Modules and Packages (12%)
 
 1. **PCAP-31-03 1.1** – Import and use modules and packages
-- import variants: import, from import, import as, import *
-- advanced qualifying for nested modules
-- the dir() function
-- the sys.path variable
-1. **PCAP-31-03 1.2** – Perform evaluations using the math module
-- functions: ceil(), floor(), trunc(), factorial(), hypot(), sqrt()
-2. **PCAP-31-03 1.3** – Generate random values using the random module
-- functions: random(), seed(), choice(), sample()
-3. **PCAP-31-03 1.4** – Discover host platform properties using the platform module
-- functions: platform(), machine(), processor(), system(), version(), python_implementation(), python_version_tuple()
-4. **PCAP-31-03 1.5** – Create and use user-defined modules and packages
-- idea and rationale;
-- the __pycache__ directory
-- the __name__ variable
-- public and private variables
-- the __init__.py file
-- searching for/through modules/packages
-- nested packages vs. directory trees
+   - import variants: import, from import, import as, import *
+   - advanced qualifying for nested modules
+   - the dir() function
+   - the sys.path variable
+2. **PCAP-31-03 1.2** – Perform evaluations using the math module
+   - functions: ceil(), floor(), trunc(), factorial(), hypot(), sqrt()
+3. **PCAP-31-03 1.3** – Generate random values using the random module
+   - functions: random(), seed(), choice(), sample()
+4. **PCAP-31-03 1.4** – Discover host platform properties using the platform module
+   - functions: platform(), machine(), processor(), system(), version(), python_implementation(), python_version_tuple()
+5. **PCAP-31-03 1.5** – Create and use user-defined modules and packages
+   - idea and rationale;
+   - the `__pycache__` directory
+   - the `__name__` variable
+   - public and private variables
+   - the `__init__.py` file
+   - searching for/through modules/packages
+   - nested packages vs. directory trees
 
 ### Section 2: Exception (14%)
+
 1. **PCAP-31-03 2.1** – Handle errors using Python-defined exceptions
-- except, except:-except, except:-else:, except (e1, e2)
-the hierarchy of exceptions
-- raise, raise ex
-- assert
-- event classes
-- except E as e
-- the arg property
+   - except, except:-except, except:-else:, except (e1, e2)
+   - the hierarchy of exceptions
+   - `raise`, `raise Exception(...)`
+   - `assert`
+   - event classes
+   - `except E as e`
+   - the `arg` property
 2. **PCAP-31-02 2.2** – Extend the Python exceptions hierarchy with self-defined exceptions
-- self-defined exceptions
-- defining and using self-defined exceptions
+   - self-defined exceptions
+   - defining and using self-defined exceptions
 
 ### Section 3: Strings (18%)
+
 1. **PCAP-31-03 3.1** – Understand machine representation of characters
-- encoding standards: ASCII, UNICODE, UTF-8, codepoints, escape sequences
+   - encoding standards: ASCII, UNICODE, UTF-8, codepoints, escape sequences
 2. **PCAP-31-03 3.2** – Operate on strings
-- functions: ord(), chr()
-- indexing, slicing, immutability
-- iterating through strings, concatenating, multiplying, comparing (against strings and numbers)
-- operators: in, not in
+   - functions: ord(), chr()
+   - indexing, slicing, immutability
+   - iterating through strings, concatenating, multiplying, comparing (against strings and numbers)
+   - operators: in, not in
 3. **PCAP-31-03 3.3** – Employ built-in string methods
-- methods: .isxxx(), .join(), .split(), .sort(), sorted(), .index(), .find(), .rfind()
+   - methods: .isupper(), .islower(), .join(), .split(), .sort(), sorted(), .index(), .find(), .rfind()
 
 ### Section 4: Object-Oriented Programming (34%)
-1. **PCAP-31-03 4.1** – Understand the Object-Oriented approach
-- ideas and notions: class, object, property, method, encapsulation, inheritance, superclass, subclass, identifying class components
-2. **PCEP-31-03 4.2** – Employ class and object properties
-- instance vs. class variables: declarations and initializations
-- the __dict__ property (objects vs. classes)
-- private components (instances vs. classes)
-- name mangling
-1. **PCAP-31-03 4.3** – Equip a class with methods
-- declaring and using methods
-- the self parameter
-2. **PCAP-31-03 4.4** – Discover the class structure
-- introspection and the hasattr() function (objects vs classes)
-- properties: __name__, __module__ , __bases__
-3. **PCAP-31-03 4.5** – Build a class hierarchy using inheritance
-- single and multiple inheritance
-- the isinstance() function
-- overriding
-- operators:
-- not is
-- , is
-- polymorphism
-- overriding the __str__() method
-- diamonds
-4. **PCAP-31-03 4.6** – Construct and initialize objects
-- declaring and invoking constructors
 
+1. **PCAP-31-03 4.1** – Understand the Object-Oriented approach
+   - ideas and notions: `class`, `object`, `property`, `method`, `encapsulation`, `inheritance`, `superclass`, `subclass`, `identifying class components`
+2. **PCEP-31-03 4.2** – Employ `class` and `object` properties
+   - `instance` vs. `class` variables: declarations and initializations
+   - the `__dict__` property (`objects` vs. `classes`)
+   - private components (`instances` vs. `classes`)
+   - name mangling
+3. **PCAP-31-03 4.3** – Equip a class with methods
+   - declaring and using methods
+   - the `self` parameter
+4. **PCAP-31-03 4.4** – Discover the class structure
+   - introspection and the hasattr() function (objects vs classes)
+   - properties: `__name__`, `__module__`, `__bases__`
+5. **PCAP-31-03 4.5** – Build a class hierarchy using inheritance
+   - single and multiple inheritance
+   - the `isinstance()` function
+   - overriding
+   - operators: `not is`, `is`
+   - polymorphism
+   - overriding the `__str__()` method
+   - diamonds
+6. **PCAP-31-03 4.6** – Construct and initialize objects
+   - declaring and invoking constructors
 
 ### Section 5: Miscellaneous (22%)
+
 Scope: List Comprehensions, Lambdas, Closures, and I/O Operations
 
 1. **PCAP-31-03 5.1** – Build complex lists using list comprehension
-- list comprehensions: the if operator, nested comprehensions
-2. **PCAP-31-03 5.2** – Embed lambda functions into the code
-- lambdas: defining and using lambdas
-- self-defined functions taking lambdas as arguments
-- functions: map(), filter()
+   - list comprehensions: the if operator, nested comprehensions
+2. **PCAP-31-03 5.2** – Embed `lambda` functions into the code
+   - lambdas: defining and using lambdas
+   - self-defined functions taking lambdas as arguments
+   - functions: `map()`, `filter()`
 3. **PCAP-31-03 5.3** – Define and use closures
-- closures: meaning and rationale
-- defining and using closures
+   - closures: meaning and rationale
+   - defining and using closures
 4. **PCAP-31-03 5.4** – Understand basic Input/Output terminology
-- I/O modes
-- predefined streams
-- handles vs. streams
-- text vs. binary modes
+   - I/O modes
+   - predefined streams
+   - handles vs. streams
+   - text vs. binary modes
 5. **PCAP-31-03 5.5** – Perform Input/Output operations
-- the open() function
-- the errno variable and its values
-- functions: close(), .read(), .write(), .readline(), readlines()
-- using bytearray as input/output buffer
+   - the `open()` function
+   - the errno variable and its values
+   - functions: `.close()`, `.read()`, `.write()`, `.readline()`, `.readlines()`
+   - using bytearray as input/output buffer
 
 ---
 
@@ -195,7 +207,6 @@ Imported entities are NOT prefixed with `.` dot-notation.
     print(sin(pi/2))
     > 1.0
 
-
 **Import Anti-Pattern**
 Importing using the `*` keyword imports all entities inside a module. AVOID importing all entities to prevent name conflicts.
 
@@ -233,7 +244,6 @@ An **aliase** import is a module imported using the `as` keyword under an altern
     # Ex. 4
     from mint import *
     make_money()
-
 
 ### Working with Standard Modules
 
@@ -355,6 +365,7 @@ Setting the seed with a number taken from the current time will augmented the ra
 #### The Platform Module
 
 Program Layers:
+
 - **Code** is located at the top
 - **Python (runtime environment)** lies directly below the code;
 - **OS (operating system)** - Python's environment provides some functionalities using the operating system's services
@@ -493,11 +504,12 @@ There are two different `pip` implementation, one for Python 2 and the other for
 `pip install -U name` → updates previously installed package
 `pip uninstall name` → uninstalls previously installed package
 
-## Module 2: Strings, Strings and List Methods, and Exceptions
+## Module 2: Strings, String Operations and Methods, and Python Exceptions and Errors
 
 ### `Strings` in Computer Systems
 
 *Computers store characters as numbers.* There is more than one possible way of encoding characters, but only some of them gained worldwide popularity and are commonly used in IT:
+
 - ASCII (used mainly to encode the Latin alphabet and some of its derivates)
 - UNICODE (able to encode virtually all alphabets being used by humans)
 
@@ -535,6 +547,7 @@ A **BOM (Byte Order Mark)** is a special combination of bits announcing encoding
 **Unicode Transformation Format or `UTF-8`** is the most common standard for encoding characters. UTF-8 uses as many bits for each of the codepoints as it really needs to represent them.
 
 Python3 fully supports `Unicode` and `UTF-8` and is completely I18Ned
+
 - use Unicode/UTF-8 encoded characters to name variables and other entities
 - use them during all input and output
 
@@ -635,6 +648,368 @@ The `not` operator negates a boolean value.
     > True
     > False
     > False
+
+#### String Operations and Methods
+
+Python strings are immutable. This means that once a string is created, it cannot be changed. However, there are many string methods that return a new string instead of modifying the original string.
+
+    the_string = 'silly walks'
+    print(the_string.upper())
+    print(the_string)
+    > SILLY WALKS
+    > silly walks
+
+Strings cannot use the `del` instruction to remove characters from a string.
+
+    the_string = 'silly walks'
+    del the_string[0]
+    > TypeError: 'str' object doesn't support item deletion
+
+Strings cannot use the `append()` method to add characters to a string or the `insert()` method to insert characters into a string.
+
+    the_string.append('!')
+    > AttributeError: 'str' object has no attribute 'append'
+
+The only thing you can do with del and a string is to remove the string as a whole.
+
+    the_string = 'silly walks'
+    del the_string
+    print(the_string)
+    > NameError: name 'the_string' is not defined
+
+The `min()` and `max()` functions return the smallest and largest characters in a string.
+
+    print(min("aAbByYzZ"))
+    print(max("aAbByYzZ"))
+    > A
+    > z
+
+The `index()` method returns the index of the first occurrence of a substring within a string. If the substring is not found, a `ValueError` exception is raised.
+
+    print("aAbByYzZaA".index("b"))
+
+The `list()` function returns a list of characters in a string.
+
+    print(list("aAbByYzZ"))
+    > ['a', 'A', 'b', 'B', 'y', 'Y', 'z', 'Z']
+
+The `count()` method returns the number of occurrences of a substring in the given string.
+
+    print("abcabc".count("b"))
+    print('abcabc'.count("d"))
+    > 2
+    > 0
+
+The `capitalize()` method returns a copy of the string with its first character capitalized and the rest lowercased.
+
+    print('aBcD'.capitalize())
+    > ABCD
+
+The `center()` method makes a copy of the original string, trying to center it inside a field of a specified width. The original string is returned if width is less than or equal to the length of the original string.
+
+    print('[' + 'alpha'.center(10) + ']')
+    print('[' + 'alpha'.center(11) + ']')
+    > [  alpha   ]
+    > [   alpha   ]
+
+The `endswith()` method returns `True` if a string ends with the specified suffix. If not, it returns `False`.
+
+    print("epsilon".endswith("on"))
+    print("epsilon".endswith("off"))
+    > True
+    > False
+
+The `startswith()` method returns `True` if a string starts with the specified prefix. If not, it returns `False`.
+
+    print("epsilon".startswith("ep"))
+    print("epsilon".startswith("epi"))
+    > True
+    > False
+
+The `find()` method is similar to `index()`, but returns -1 if the substring is not found.
+
+    print("Eta".find("ta"))
+    print("Eta".find("mma"))
+    > 1
+    > -1
+
+The `rfind()` method is similar to `find()`, but searches backward in the string instead of forward.
+
+    print("tau tau tau".rfind("ta"))
+    print("tau tau tau".rfind("ta", 9))
+    print("tau tau tau".rfind("ta", 3, 9))
+    > 8
+    > -1
+    > 4
+
+The `replace()` method returns a copy of the string with all occurrences of substring old replaced by new. If the optional argument maxreplace is given, the first maxreplace occurrences are replaced.
+
+    print("www.netacad.com".replace("netacad.com", "pythoninstitute.org"))
+    print("This is it!".replace("is", "are"))
+    > www.pythoninstitute.org
+    > Thare are it!
+
+The `strip()` method returns a string with leading and trailing whitespace removed.
+
+    print("[" + "   aleph   ".strip() + "]")
+    > [aleph]
+
+The `lstrip()` method returns a string with leading whitespace characters removed from the left side of the string. If you want to remove other characters, you can specify those characters as an argument.
+
+    print("[" + " tau ".lstrip() + "]")
+    print("www.pythoninstitute.org".rstrip("w."))
+    > [tau ]
+    > pythoninstitute.org
+
+The `rstrip()` method returns a string with trailing whitespace characters removed from the right side of the string. If you want to remove other characters, you can specify those characters as an argument.
+
+    print("[" + " upsilon ".rstrip() + "]")
+    print("www.pythoninstitute.org".rstrip(".org"))
+    > [ upsilon]
+    > www.pythoninstitute
+
+The `isalnum()` method returns `True` if the string consists only of alphanumeric characters (no symbols like `!`, `@`, and so on). If not, it returns `False`.
+
+    print("Moooo".isalnum())
+    print('Mu40'.isalnum())
+    > True
+    > True
+
+The `isdigit()` method returns `True` if the string consists only of digits and is not blank. If not, it returns `False`.
+
+    print('2018'.isdigit())
+    print("Year2019".isdigit())
+    > True
+    > False
+
+The `isalpha()` method returns `True` if the string consists only of letters and is not blank. If not, it returns `False`.
+
+    print("Moooo".isalpha())
+    print('Mu40'.isalpha())
+    > True
+    > False
+
+The `islower()` method returns `True` if the string is a lowercase string, `False` otherwise.
+
+    print("MOOO".islower())
+    print('moooo'.islower())
+    > False
+    > True
+
+The `isupper()` method returns `True` if the string is an uppercase string, `False` otherwise.
+
+    print("MOOO".isupper())
+    print('moooo'.isupper())
+    > False
+    > True
+
+The `isspace()` method returns `True` is the string consists only of spaces, tabs, and newlines and is not blank. If not, it returns `False`.
+
+    print(' \n '.isspace())
+    print(" ".isspace())
+    print("moo moo moo".isspace())
+    > True
+    > True
+    > False
+
+The `lower()` method returns a string with all uppercase characters converted to lowercase.
+
+    print("SiGmA=60".lower())
+    > sigma=60
+
+The `upper()` method returns a string with all lowercase characters converted to uppercase.
+
+    print("SiGmA=60".upper())
+    > SIGMA=60
+
+The `swapcase()` method returns a string with uppercase characters converted to lowercase and vice versa.
+
+    print("IoTA=130".swapcase())
+    > iOta=130
+
+The `title()` method returns a string with the first character of every word in uppercase and all other characters in lowercase.
+
+    print("how now brown cow".title())
+    > How Now Brown Cow
+
+The `join()` method expects one argument as a list and returns a string consisting of the list elements joined by the string.
+
+    print(",".join(["omicron", "pi", "rho"]))
+    print(" ".join(["ABC", "123"]))
+    > omicron,pi,rho
+    > ABC 123
+
+The `split()` method does the opposite of `join()`. It splits the string into a list of elements.
+
+    print("phi       chi\npsi".split())
+    print("phi,chi,psi".split(","))
+    > ['phi', 'chi', 'psi']
+    > ['phi', 'chi', 'psi']
+
+#### Comparing Strings
+
+When comparing, Python compares code point values, character by character.
+
+    print("alpha" < "beta")
+    print("alpha" < "Alpha")
+    print("alpha" < "alphabeta")
+    > True
+    > False
+    > True
+
+When you compare two strings of different lengths and the shorter one is identical to the longer one's beginning, the longer string is considered greater.
+
+    print("alpha" < "alphabeta")
+    print("alpha" < "alphabeta".upper())
+    > True
+    > False
+
+If a string contains digits only, it is still not a number. Consequently, comparing strings against numbers is generally a bad idae.
+
+    '10' == 10  > False
+    '10' != 10  > True
+    '10' == 1   > False
+    '10' != 1   > True
+    '10' > 10   > TypeError exception
+
+#### Sorting Strings
+
+Python offers two ways to sort strings. The `sorted()` function returns a new sorted list of strings.
+
+    words = ["zeta", "Eta", "theta", "Iota"]
+    sorted_words = sorted(words)
+    print(sorted_words)
+    > ['Eta', 'Iota', 'theta', 'zeta']
+
+The `sort()` method sorts a list of strings.
+
+    words = ["zeta", "Eta", "theta", "Iota"]
+    words.sort()
+    print(words)
+    > ['Eta', 'Iota', 'theta', 'zeta']
+
+#### Converting Strings to Numbers/Floats
+
+The `int()` function converts a string to an integer.
+
+    print(int("32"))
+    print(int("Hello"))
+    > 32
+    > ValueError exception
+
+The `float()` function converts a string to a floating-point number.
+
+    print(float("3.14159"))
+    print(float("45"))
+    print(float("Hello"))
+    > 3.14159
+    > 45.0
+    > ValueError exception
+
+The `str()` function converts a number to a string.
+
+    print(str(32))
+    print(str(3.14159))
+    > 32
+    > 3.14159
+
+#### Python Strings Key Takeaways
+
+1. Strings are key tools in modern data processing, as most useful data are actually strings. For example, using a web search engine (which seems quite trivial these days) utilizes extremely complex and complicated string processing, involving unimaginable amounts of data.
+
+2. Comparing strings in a strict way (as Python does) can be very unsatisfactory when it comes to advanced searches (e.g. during extensive database queries). Responding to this demand, a number of fuzzy string comparison algorithms has been created and implemented. These algorithms are able to find strings which aren't equal in the Python sense, but are similar. One such concept is the Hamming distance, which is used to determine the similarity of two strings. If this problem interests you, you can find out more about it here: https://en.wikipedia.org/wiki/Hamming_distance. Another solution of the same kind, but based on a different assumption, is the Levenshtein distance described here: https://en.wikipedia.org/wiki/Levenshtein_distance.
+
+3. Another way of comparing strings is finding their acoustic similarity, which means a process leading to determine if two strings sound similar (like "raise" and "race"). Such a similarity has to be established for every language (or even dialect) separately. An algorithm used to perform such a comparison for the English language is called Soundex and was invented in 1918. You can find out more about it here: https://en.wikipedia.org/wiki/Soundex.
+
+4. Due to limited native float and integer data precision, it's sometimes reasonable to store and process huge numeric values as strings. This is the technique Python uses when you force it to operate on an integer number consisting of a very large number of digits.
+
+### Expections and Errors
+
+Python always raises an exception when it has no idea what to do with your code. Once an exception is raised, Python stops executing the code and returns to the interactive prompt. You can also use the `raise` statement to raise an exception.
+
+    raise Exception("Something went wrong!")
+
+After an exception is raised, the exception expects to be handled. If it's not handled, the program will crash. You can handle exceptions using the `try`/`except` statement.
+
+    try:
+        print(1/0)
+    except ZeroDivisionError:
+        print("You can't divide by zero!")
+
+#### Exception Handling
+
+- the `except` branches are searched in the same order in which they appear in the code;
+- you must not use more than one `except` branch with a certain exception name;
+- the number of different `except` branches is arbitrary - the only condition is that if you use try, you must put at least one except (named or not) after it;
+- the `except` keyword must not be used without a preceding `try`;
+- if any of the `except` branches is executed, no other branches will be visited;
+- if none of the specified `except` branches matches the `raised exception`, the exception remains unhandled;
+- if there is an unnamed `except` branch, it must be the last specified
+
+#### Python Exception Hierarchy
+
+Python 3 defines [63 built-in exceptions](https://docs.python.org/3/library/exceptions.html). All python exceptions are derived from the BaseException class. The following diagram shows the exception hierarchy:
+
+![Python3 Exception Hierarchy](images/python3-exception-hierarchy.png)
+
+#### Exceptions in Application
+
+If an exception is raised inside a function, it can be handled:
+
+Inside the function:
+
+    def divide(x, y):
+        try:
+            result = x / y
+        except ZeroDivisionError:
+            print("division by zero!")
+        else:
+            print("result is", result)
+        finally:
+            print("executing finally clause")
+
+Outside the function:
+
+    try:
+        divide(2, 1)
+        divide(2, 0)
+        divide("2", "1")
+    except TypeError:
+        print("unsupported operand type(s) for /")
+
+    > result is 2.0
+    > executing finally clause
+    > division by zero!
+    > executing finally clause
+    > unsupported operand type(s) for /
+    > executing finally clause
+
+#### Assertions
+
+The `assert` statement is used to check if a condition is true. If the condition is false, an `AssertionError` exception is raised.
+
+    assert 2 + 2 == 4
+    assert 1 + 1 == 3
+
+    > AssertionError exception
+
+#### Exceptions Key Takeaways
+
+1. Some abstract built-in Python exceptions are:
+
+    `ArithmeticError`
+    `BaseException`
+    `LookupError`
+
+2. Some concrete built-in Python exceptions are:
+
+    `AssertionError`
+    `ImportError`
+    `IndexError`
+    `KeyboardInterrupt`
+    `KeyError`
+    `MemoryError`
+    `OverflowError`
 
 ## Module 3: Object-Oriented Programming
 
