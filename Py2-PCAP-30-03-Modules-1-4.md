@@ -19,9 +19,9 @@
       - [The Random Module](#the-random-module)
       - [The Platform Module](#the-platform-module)
       - [Python Standard Modules](#python-standard-modules)
-      - [Exercises](#exercises)
+      - [Module Exercises](#module-exercises)
     - [What is a Package?](#what-is-a-package)
-      - [Exercises](#exercises-1)
+      - [More Module Exercises](#more-module-exercises)
         - [Ex. 1: preventing arbatrary module code execution](#ex-1-preventing-arbatrary-module-code-execution)
         - [Ex. 2: system paths](#ex-2-system-paths)
         - [Ex. 3: importing packages using qualified imports](#ex-3-importing-packages-using-qualified-imports)
@@ -399,7 +399,6 @@ The **`version()` function** provids the OS version as a string.
     print(version())
     > Darwin Kernel Version 21.4.0: Fri Mar 18 00:46:32 PDT 2022; root:xnu-8020.101.4~15/RELEASE_ARM64_T6000
 
-
 The **`python_implementation()` function** → returns the current Python implementation
 The **`python_version_tuple()` function** → returns a three-element tuple filled with: *(major part, minor part, patch level)*.
 
@@ -415,7 +414,7 @@ The **`python_version_tuple()` function** → returns a three-element tuple fill
 
 **[Standard Python module](https://docs.python.org/3/py-modindex.html)**
 
-#### Exercises
+#### Module Exercises
 
     # Ex. 1
     import math
@@ -446,7 +445,7 @@ Packages, like modules, may require initialization.
 5. If you want convince Python that it should take into account a non-standard package's directory, its name needs to be inserted/appended into/to the import directory list stored in the path variable contained in the sys module.
 6. A Python file named `__init__.py` is implicitly run when a package containing it is subject to import, and is used to initialize a package and/or its sub-packages (if any). The file may be empty, but must not be absent.
 
-#### Exercises
+#### More Module Exercises
 
 ##### Ex. 1: preventing arbatrary module code execution
 
@@ -467,15 +466,14 @@ Write code ensuring that all requested modules are imported from the directory `
     # note the double backslashes!
     sys.path.append("D:\\Python\\Project\\Modules")
 
-
 ##### Ex. 3: importing packages using qualified imports
 
 Assuming the following path and directory structure, import the `mymodule` module to be used in a script.
 
-`D:\Python\Project\Modules`
-`abc`
-|__ `def`
-|__ |__ `mymodule.py`
+    `D:\Python\Project\Modules`
+    `abc`
+    |__ `def`
+    |__ |__ `mymodule.py`
 
     import sys 
     sys.path.append("D:\\Python\\Project\\Modules")
@@ -917,9 +915,9 @@ The `str()` function converts a number to a string.
 
 1. Strings are key tools in modern data processing, as most useful data are actually strings. For example, using a web search engine (which seems quite trivial these days) utilizes extremely complex and complicated string processing, involving unimaginable amounts of data.
 
-2. Comparing strings in a strict way (as Python does) can be very unsatisfactory when it comes to advanced searches (e.g. during extensive database queries). Responding to this demand, a number of fuzzy string comparison algorithms has been created and implemented. These algorithms are able to find strings which aren't equal in the Python sense, but are similar. One such concept is the Hamming distance, which is used to determine the similarity of two strings. If this problem interests you, you can find out more about it here: https://en.wikipedia.org/wiki/Hamming_distance. Another solution of the same kind, but based on a different assumption, is the Levenshtein distance described here: https://en.wikipedia.org/wiki/Levenshtein_distance.
+2. Comparing strings in a strict way (as Python does) can be very unsatisfactory when it comes to advanced searches (e.g. during extensive database queries). Responding to this demand, a number of fuzzy string comparison algorithms has been created and implemented. These algorithms are able to find strings which aren't equal in the Python sense, but are similar. One such concept is the [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance), which is used to determine the similarity of two strings. Another solution of the same kind, but based on a different assumption, is the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance).
 
-3. Another way of comparing strings is finding their acoustic similarity, which means a process leading to determine if two strings sound similar (like "raise" and "race"). Such a similarity has to be established for every language (or even dialect) separately. An algorithm used to perform such a comparison for the English language is called Soundex and was invented in 1918. You can find out more about it here: https://en.wikipedia.org/wiki/Soundex.
+3. Another way of comparing strings is finding their acoustic similarity, which means a process leading to determine if two strings sound similar (like "raise" and "race"). Such a similarity has to be established for every language (or even dialect) separately. An algorithm used to perform such a comparison for the English language is called [Soundex](https://en.wikipedia.org/wiki/Soundex) and was invented in 1918.
 
 4. Due to limited native float and integer data precision, it's sometimes reasonable to store and process huge numeric values as strings. This is the technique Python uses when you force it to operate on an integer number consisting of a very large number of digits.
 
