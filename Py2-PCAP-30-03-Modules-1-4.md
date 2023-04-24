@@ -35,11 +35,12 @@
         - [USC-4](#usc-4)
         - [UTF-8](#utf-8)
     - [`Strings` in Python](#strings-in-python)
+    - [String Operations and Methods](#string-operations-and-methods)
       - [String Concatenation and Replication](#string-concatenation-and-replication)
       - [String Ordinals and Code Point Characters](#string-ordinals-and-code-point-characters)
       - [Indexing, Iterating, and Slicing a String](#indexing-iterating-and-slicing-a-string)
       - [The `in` and `not in` operators](#the-in-and-not-in-operators)
-      - [String Operations and Methods](#string-operations-and-methods)
+      - [String Methods](#string-methods)
       - [Comparing Strings](#comparing-strings)
       - [Sorting Strings](#sorting-strings)
       - [Converting Strings to Numbers/Floats](#converting-strings-to-numbersfloats)
@@ -51,6 +52,17 @@
       - [Assertions](#assertions)
       - [Exceptions Key Takeaways](#exceptions-key-takeaways)
   - [Module 3: Object-Oriented Programming](#module-3-object-oriented-programming)
+    - [Object Fundamentals](#object-fundamentals)
+      - [Procedural vs. Object-Oriented Programming](#procedural-vs-object-oriented-programming)
+      - [Class Hierarchies](#class-hierarchies)
+      - [Class Example: Stack](#class-example-stack)
+    - [OOP Properties](#oop-properties)
+      - [Instance Variables](#instance-variables)
+      - [Built-in Properties](#built-in-properties)
+      - [Class Variables](#class-variables)
+    - [OOP Methods](#oop-methods)
+    - [Reflection and Introspection](#reflection-and-introspection)
+    - [OOP Fundamentals: Inheritance](#oop-fundamentals-inheritance)
   - [Module 4: Miscellaneous](#module-4-miscellaneous)
 
 ---
@@ -571,6 +583,8 @@ The **newline character** is whitespace that forces a new line feed. It is invis
     print(len(multiline))
     > 15
 
+### String Operations and Methods
+
 #### String Concatenation and Replication
 
 Strings can be *concatenated* using the addition operator (order matters).
@@ -647,7 +661,7 @@ The `not` operator negates a boolean value.
     > False
     > False
 
-#### String Operations and Methods
+#### String Methods
 
 Python strings are immutable. This means that once a string is created, it cannot be changed. However, there are many string methods that return a new string instead of modifying the original string.
 
@@ -994,24 +1008,313 @@ The `assert` statement is used to check if a condition is true. If the condition
 #### Exceptions Key Takeaways
 
 1. Some abstract built-in Python exceptions are:
-
-    `ArithmeticError`
-    `BaseException`
-    `LookupError`
-
+    - `ArithmeticError`
+    - `BaseException`
+    - `LookupError`
 2. Some concrete built-in Python exceptions are:
-
-    `AssertionError`
-    `ImportError`
-    `IndexError`
-    `KeyboardInterrupt`
-    `KeyError`
-    `MemoryError`
-    `OverflowError`
+    - `AssertionError`
+    - `ImportError`
+    - `IndexError`
+    - `KeyboardInterrupt`
+    - `KeyError`
+    - `MemoryError`
+    - `OverflowError`
 
 ## Module 3: Object-Oriented Programming
 
-asdf
+### Object Fundamentals
+
+#### Procedural vs. Object-Oriented Programming
+
+In the procedural programming paradigm, the program is a set of procedures (functions) that operate on data (variables). The data is not organized in any particular way, and the functions are not associated with any particular data.
+
+In the object-oriented programming paradigm, the program is a set of objects that interact with one another. Each object is an instance of a particular class, and each class defines a set of attributes that characterize any object of the class. Additionally, each class defines a set of methods that are functions that operate on data that is contained within the class.
+
+A `class` is a blueprint for the object. A `class` defines the `attributes` and `methods` that characterize any object that is instantiated from the class.
+
+An `object` is an instance of a particular class. An object contains the `attributes` and `methods` defined by its class. A `method` is a function that is defined in a class definition.
+
+`Instantiation` is the process of creating an instance of a class. The `__init__` method is a special method that is called when an object is instantiated. The `__init__` method is used to initialize the attributes of an object.
+
+    class Person:
+        def __init__(self, name):
+            self.name = name
+
+    person = Person("John")
+
+#### Class Hierarchies
+
+When a class is derived from another class, their relation is named `inheritance`
+
+`Inheritance` is the process by which one class takes on the attributes and methods of another, and expresses an is-a relationship.
+
+Class hierarchy grows from top to bottom, like tree roots, not branches. The topmost class in a hierarchy is called the `root class`. The root class is the most general class in the hierarchy. The root class is the superclass of all other classes in the hierarchy.
+
+- *(noun)* an object has a name that uniquely identifies it
+- *(adjective)* an object has a set of individual properties which make it original and unique
+- *(verb)* an object has a set of abilities to perform specific actions, able to change the object itself, or other objects
+
+`Encapsulation` is the process of hiding the implementation details of a class from other objects. Encapsulation is used to hide the data members of a class from other objects.
+
+#### Class Example: Stack
+
+The stack paradigm follows the rule LILO (Last In, Last Out).
+A `queue` paradigm follows the rule FIFO (First In, First Out).
+
+    class Stack:
+        def __init__(self):
+            self.__stack_list = []
+        def push(self, val):
+            self.__stack_list.append(val)
+        def pop(self):
+            val = self.__stack_list[-1]
+            del self.__stack_list[-1]
+            return val
+
+    class AddingStack(Stack):
+        def __init__(self):
+            Stack.__init__(self)
+            self.__sum = 0
+        def get_sum(self):
+            return self.__sum
+        def push(self, val):
+            self.__sum += val
+            Stack.push(self, val)
+        def pop(self):
+            val = Stack.pop(self)
+            self.__sum -= val
+            return val
+
+    stack_object = AddingStack()
+
+    for i in range(5):
+        stack_object.push(i)
+    print(stack_object.get_sum())
+
+    for i in range(5):
+        print(stack_object.pop())
+
+### OOP Properties
+
+Note: objects of the same class do not necessarily have all the same attributes.
+
+    class ExampleClass:
+        def __init__(self, val):
+            if val % 2 != 0:
+                self.a = 1
+            else:
+                self.b = 1
+
+    example_object = ExampleClass(1)
+
+    print(example_object.a)
+    print(example_object.b)
+    > 1
+    > AttributeError: 'ExampleClass' object has no attribute 'b'
+
+The `hasattr()` function is used to check if an object has an attribute.
+
+    class ExampleClass:
+        def __init__(self, val):
+            if val % 2 != 0:
+                self.a = 1
+            else:
+                self.b = 1
+
+    example_object = ExampleClass(1)
+
+    print(hasattr(example_object, 'a'))
+    print(hasattr(example_object, 'b'))
+    > True
+    > False
+
+#### Instance Variables
+
+An `instance variable` is a property whose existence depends on the creation of an `object`. Every `object` can have a different set of `instance variables`.
+
+    class ExampleClass:
+        def __init__(self, val):
+            self.property = val
+
+    example_object = ExampleClass(1)
+
+    print(example_object.property)
+    > 1
+
+An instance variable can be private when its name starts with __, but don't forget that such a property is still accessible from outside the class using a mangled name constructed as _ClassName__PrivatePropertyName
+
+    class ExampleClass:
+        def __init__(self, val):
+            self.__private_property = val
+
+    example_object = ExampleClass(1)
+
+    print(example_object._ExampleClass__private_property)
+    > 1
+
+#### Built-in Properties
+
+All objects contain a set of `built-in properties` properties which are predefined and always available. The `dir()` function is used to get a list of all the properties of an object.
+
+    class ExampleClass:
+        def __init__(self, val):
+            self.property = val
+
+    example_object = ExampleClass(1)
+
+    print(dir(example_object))
+    > ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'property']
+
+#### Class Variables
+
+ A `class variable` is a property which exists in exactly one copy, and doesn't need any created object to be accessible.
+
+    class ExampleClass:
+        class_property = 1
+
+    print(ExampleClass.class_property)
+    > 1
+
+All a class's class variables are stored inside a dedicated dictionary named `__dict__`, which is accessible from the class itself.
+
+    class ExampleClass:
+        class_property = 1
+
+    print(ExampleClass.__dict__)
+    > {'__module__': '__main__', 'class_property': 1, '__dict__': <attribute '__dict__' of 'ExampleClass' objects>, '__weakref__': <attribute '__weakref__' of 'ExampleClass' objects>, '__doc__': None}
+
+### OOP Methods
+
+A *method* is a function embedded inside a class. The `self` parameter is used to obtain access to the object's instance and class variables.
+
+    class ExampleClass:
+        class_property = 1
+        def example_method(self):
+            print(self.class_property)
+
+    example_object = ExampleClass()
+
+    example_object.example_method()
+    > 1
+
+The `self` parameter is also used to invoke other object/class methods from inside the class.
+
+    class ExampleClass:
+        class_property = 1
+        def example_method(self):
+            print(self.class_property)
+            self.other_method()
+        def other_method(self):
+            print("other method")
+
+    example_object = ExampleClass()
+
+    example_object.example_method()
+    > 1
+    > other method
+
+The Constructor:
+
+- is obliged to have the self parameter (it's set automatically, as usual);
+- may (but doesn't need to) have more parameters than just self; if this happens, the way in which the class name is used to create the object must reflect the `__init__` definition;
+- can be used to set up the object, i.e., properly initialize its internal state, create instance variables, instantiate any other objects if their existence is needed, etc.
+- cannot return anything, not even None;
+- cannot be invoked directly either from the object or from inside the class
+
+The `__init__` method is called when an object is created. It is used to initialize the object's properties. If a class has a constructor, it is invoked automatically and implicitly when the object of the class is instantiated.
+
+    class ExampleClass:
+        def __init__(self, val):
+            self.property = val
+
+    example_object = ExampleClass(1)
+
+    print(example_object.property)
+    > 1
+
+The `__name__` method is used to get the name of a class.
+
+    class ExampleClass:
+        def __init__(self, val):
+            self.property = val
+
+    example_object = ExampleClass(1)
+
+    print(example_object.__class__.__name__)
+    > ExampleClass
+
+The `__module__` method stores the name of the module which contains the definition of the class.
+
+    class ExampleClass:
+        def __init__(self, val):
+            self.property = val
+
+    example_object = ExampleClass(1)
+
+    print(example_object.__class__.__module__)
+    > __main__
+
+The `__bases__` method returns a tuple of classes which are direct superclasses for the class.
+
+    class SuperOne:
+        pass
+
+    class SuperTwo:
+        pass
+
+    class Sub(SuperOne, SuperTwo):
+        pass
+
+    print(SuperOne.__bases__)
+    print(SuperTwo.__bases__)
+    print(Sub.__bases__)
+    > (<class 'object'>,)
+    > (<class 'object'>,)
+    > (<class '__main__.SuperOne'>, <class '__main__.SuperTwo'>)
+
+The `type()` function is used to get the type of an object.
+
+    class ExampleClass:
+        def __init__(self, val):
+            self.property = val
+
+    example_object = ExampleClass(1)
+
+    print(type(example_object))
+    > <class '__main__.ExampleClass'>
+
+### Reflection and Introspection
+
+`Introspection`, which is the ability of a program to examine the type or properties of an object at runtime.
+`Reflection`, which goes a step further, and is the ability of a program to manipulate the values, properties and/or functions of an object at runtime.
+
+    class MyClass:
+        pass
+
+    obj = MyClass()
+    obj.a = 1
+    obj.b = 2
+    obj.i = 3
+    obj.ireal = 3.5
+    obj.integer = 4
+    obj.z = 5
+
+    def incIntsI(obj):
+        for name in obj.__dict__.keys():
+            if name.startswith('i'):
+                val = getattr(obj, name)
+                if isinstance(val, int):
+                    setattr(obj, name, val + 1)
+
+    print(obj.__dict__)
+    incIntsI(obj)
+    print(obj.__dict__)
+    > {'a': 1, 'b': 2, 'i': 3, 'ireal': 3.5, 'integer': 4, 'z': 5}
+    > {'a': 1, 'b': 2, 'i': 4, 'ireal': 3.5, 'integer': 5, 'z': 5}
+
+### OOP Fundamentals: Inheritance
+
+3.5.1.3 OOP Fundamentals: Inheritance
 
 ## Module 4: Miscellaneous
 
