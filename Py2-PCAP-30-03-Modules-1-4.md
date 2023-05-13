@@ -270,32 +270,48 @@ The **`dir() function`** shows a list of the entities contained inside an import
 
 ##### Trigonometry
 
-**sin(x)** → the sine of x;
-**cos(x)** → the cosine of x;
-**tan(x)** → the tangent of x.
+**sin(x)** → the sine of x
 
-**asin(x)** → the arcsine of x;
-**acos(x)** → the arccosine of x;
-**atan(x)** → the arctangent of x.
+**cos(x)** → the cosine of x
 
-**pi** → a constant with a value that is an approximation of π;
-**radians(x)** → a function that converts x from degrees to radians;
+**tan(x)** → the tangent of x
+
+**asin(x)** → the arcsine of x
+
+**acos(x)** → the arccosine of x
+
+**atan(x)** → the arctangent of x
+
+**pi** → a constant with a value that is an approximation of π
+
+**radians(x)** → a function that converts x from degrees to radians
+
 **degrees(x)** → acting in the other direction (from radians to degrees)
 
-**sinh(x)** → the hyperbolic sine;
-**cosh(x)** → the hyperbolic cosine;
-**tanh(x)** → the hyperbolic tangent;
-**asinh(x)** → the hyperbolic arcsine;
-**acosh(x)** → the hyperbolic arccosine;
-**atanh(x)** → the hyperbolic arctangent.
+**sinh(x)** → the hyperbolic sine
+
+**cosh(x)** → the hyperbolic cosine
+
+**tanh(x)** → the hyperbolic tangent
+
+**asinh(x)** → the hyperbolic arcsine
+
+**acosh(x)** → the hyperbolic arccosine
+
+**atanh(x)** → the hyperbolic arctangent
 
 ##### Exponentiation
 
 **e** → a constant with a value that is an approximation of Euler's number (e)
+
 **exp(x)** → finding the value of a value `e` to the power of `x`
+
 **log(x)** → the natural logarithm of x
+
 **log(x, b)** → the logarithm of x to base b
+
 **log10(x)** → the decimal logarithm of x (more precise than log(x, 10))
+
 **log2(x)** → the binary logarithm of x (more precise than log(x, 2))
 
 **pow(x, y)** → finding the value of xy (mind the domains), this is *a unique built in function*
@@ -303,9 +319,13 @@ The **`dir() function`** shows a list of the entities contained inside an import
 ##### Math Functions
 
 **ceil(x)** → the ceiling of x (the smallest integer greater than or equal to x)
+
 **floor(x)** → the floor of x (the largest integer less than or equal to x)
+
 **trunc(x)** → the value of x truncated to an integer (be careful - it's not an equivalent either of ceil or floor)
+
 **factorial(x)** → returns x! (x has to be an integral and not a negative)
+
 **hypot(x, y)** → returns the length of the hypotenuse of a right-angle triangle with the leg lengths equal to x and y (the same as sqrt(pow(x, 2) + pow(y, 2)) but more precise)
 
 #### The Random Module
@@ -316,7 +336,7 @@ A random number generator uses a **seed** to calculate a random number and sets 
 
 Setting the seed with a number taken from the current time will augmented the random factor at each program launch.
 
-**random()** produces a float number x ranging from (0.0, 1.0) → (0.0 <= x < 1.0).
+**random()** produces a float number x ranging from (0.0, 1.0) → (0.0 <= x < 1.0)
 
     from random import random
 
@@ -329,9 +349,11 @@ Setting the seed with a number taken from the current time will augmented the ra
     > 0.5896799172452125
     > 0.02116716297022092
 
-**seed()** directly sets the generator's seed.
-**seed()** → sets the seed with the current time;
-**seed(int_value)** → sets the seed with the integer value int_value
+**seed()** directly sets the generator's seed
+
+**seed()** → sets the seed with the current time
+
+**seed(initial)** → sets the seed with the integer value initial value
 
     from random import random, seed
 
@@ -346,10 +368,14 @@ Setting the seed with a number taken from the current time will augmented the ra
     > 0.258916750293
     > 0.511274721369
 
+
 **randrange(end)** → generates random integer in given *range(end)*
+
 **randrange(beg, end)** → generates random integer in given *range(beg, end)*
+
 **randrange(beg, end, step)** → generates random integer in given *range(beg, end, step)*
-**randint(left, right)** → randrange(left, right+1) → generates integer value `i` within the range [left, right] (no exclusion on the right side).
+
+**randint(left, right)** → randrange(left, right+1) → generates integer value `i` within the range [left, right] (no exclusion on the right side)
 
     print(randint(0, 1))
     > 0 or 1
@@ -358,7 +384,8 @@ Setting the seed with a number taken from the current time will augmented the ra
     > 0, 1, or 2
 
 **choice(sequence)** → chooses a "random" element from the input sequence and returns it
-**sample(sequence, elements_to_choose)** → builds list (sample) consisting of the # of elements_to_choose element "drawn" from the input sequence.
+
+**sample(sequence, elements_to_choose)** → builds list (sample) consisting of the # of elements_to_choose element "drawn" from the input sequence
 
     from random import choice, sample
 
@@ -379,14 +406,21 @@ Setting the seed with a number taken from the current time will augmented the ra
 Program Layers:
 
 - **Code** is located at the top
-- **Python (runtime environment)** lies directly below the code;
+
+- **Python (runtime environment)** lies directly below the code
+
 - **OS (operating system)** - Python's environment provides some functionalities using the operating system's services
+ 
 - **Hardware** is the bottom-most layer - processor (or processors), network interfaces, human interface devices (mice, keyboards, etc.) and all other machinery needed to make the computer run
 
 The **`platform` module** lets you access the underlying platform's data.
+
 The **`machine` function** returns a generic name of the processor which runs your OS.
+
 The **`processor()` function** returns a string filled with the real processor name.
+
 The **`system()` function** returns the generic OS name as a string.
+
 The **`version()` function** provids the OS version as a string.
 
     from platform import platform, machine, processor, system, version
@@ -412,6 +446,7 @@ The **`version()` function** provids the OS version as a string.
     > Darwin Kernel Version 21.4.0: Fri Mar 18 00:46:32 PDT 2022; root:xnu-8020.101.4~15/RELEASE_ARM64_T6000
 
 The **`python_implementation()` function** → returns the current Python implementation
+
 The **`python_version_tuple()` function** → returns a three-element tuple filled with: *(major part, minor part, patch level)*.
 
     from platform import python_implementation, python_version_tuple
@@ -454,7 +489,7 @@ Packages, like modules, may require initialization.
 2. During the very first import of the actual module, Python translates its source code into the semi-compiled format stored inside the pyc files, and deploys these files into the `__pycache__` directory located in the module's home directory.
 3. If you want to instruct your module's user that a particular entity should be treated as private (i.e. not to be explicitly used outside the module) you can mark its name with either the _ or __ prefix. Don't forget that this is only a recommendation, not an order.
 4. The names shabang, shebang, hasbang, poundbang, and hashpling describe the digraph written as `#!`, used to instruct Unix-like OSs how the Python source file should be launched. This convention has no effect under MS Windows.
-5. If you want convince Python that it should take into account a non-standard package's directory, its name needs to be inserted/appended into/to the import directory list stored in the path variable contained in the sys module.
+5. If you want convince Python that it should take into account a non-standard package's directory, its name needs to be inserted/appended into/to the import directory list stored in the path variable contained in the sys module. 
 6. A Python file named `__init__.py` is implicitly run when a package containing it is subject to import, and is used to initialize a package and/or its sub-packages (if any). The file may be empty, but must not be absent.
 
 #### More Module Exercises
@@ -505,13 +540,21 @@ There are two different `pip` implementation, one for Python 2 and the other for
 ### Dependencies (using pip)
 
 `pip --version` > pip 22.2.2 from /src/python/site-packages/pip
+
 `pip help operation` → shows brief pip's description
+
 `pip list` → shows list of currently installed packages
+
 `pip show package_name` → shows package_name info including package's dependencies
-`pip search anystring` → searches through PyPI directories in order to find packages which name contains anystring
+
+`pip search anystring` → searches through PyPI directories in order to find packages which name contains any string
+
 `pip install name` → installs name system-wide (expect problems when you don't have administrative rights)
+
 `pip install --user name` → install name for you only; no other your platform's user will be able to use it
+
 `pip install -U name` → updates previously installed package
+
 `pip uninstall name` → uninstalls previously installed package
 
 ## Module 2: Strings, String Operations and Methods, and Python Exceptions and Errors
@@ -576,6 +619,7 @@ The backslash character `\` is used to escape characters in a string and is not 
     > 3
 
 **Multiline strings** use three single or double quotes surrounding a block of text.
+
 The **newline character** is whitespace that forces a new line feed. It is invisible or represented as `\n` and does count towards the length of string.
 
     multiline = '''Line #1
@@ -626,6 +670,7 @@ Use the **`chr()` function** takes a codepoint value and returns its character. 
 #### Indexing, Iterating, and Slicing a String
 
 Since strings are sequences they may be treated like lists in some cases.
+
 Strings can be `indexed` by accessing characters in a sequence using list indexing.
 
     the_string = 'silly walks'
@@ -651,6 +696,7 @@ Strings can be `sliced` also.
 #### The `in` and `not in` operators
 
 The `in` operator checks if its left argument (a string) can be found anywhere within the right argument (another string).
+
 The `not` operator negates a boolean value.
 
     alphabet = "abcdefghijklmnopqrstuvwxyz"
